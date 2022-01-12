@@ -1,6 +1,7 @@
 mod nintai_game;
+mod nintai_play;
 
 fn main() {
     let g = nintai_game::GameArea::new(nintai_game::Colors::Yellow);
-    format!("The GameArea is: {:?}", g);
+    println!("The GameArea is: {:?}", g);
 }
