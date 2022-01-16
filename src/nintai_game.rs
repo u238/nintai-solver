@@ -33,8 +33,10 @@ pub struct GameArea {
 }
 
 fn generate_below_of_next_piece_index_rec(prev_base: &u8, curr_base: &u8, index: &u8) -> u8 {
-    return if index <= curr_base {
-        let r = *index - (*curr_base - *prev_base) + 1;
+    return if *index <= *curr_base && *prev_base == 0 as u8 {
+        0
+    } else if *index <= *curr_base {
+        let r = *index - (*curr_base - *prev_base + 1);
         r
     } else {
         generate_below_of_next_piece_index_rec(curr_base, &(curr_base + (curr_base - prev_base - 2)), index)
